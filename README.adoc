@@ -1,0 +1,32 @@
+= MicroK8s
+
+== Firewalld
+
+.On master
+[source,bash]
+----
+firewall-cmd --add-port={25000/tcp,16443/tcp,12379/tcp,10250/tcp,10255/tcp,10257/tcp,10259/tcp} --permanent
+firewall-cmd --reload
+----
+
+.On dńodes
+[source,bash]
+----
+firewall-cmd --add-port={25000/tcp,10250/tcp,10255/tcp} --permanent
+firewall-cmd --reload
+----
+
+== Add nodes to master
+
+[source,bash]
+----
+microk8s add-node
+----
+
+Source : https://www.server-world.info/en/note?os=CentOS_8&p=microk8s&f=3
+
+== Links
+
+- https://microk8s.io/#install-microk8s[Install MicroK8s on Linux]
+- https://microk8s.io/docs/services-and-ports[MicroK8s -> Services and ports]
+- https://microk8s.io/docs/troubleshooting[MicroK8s -> Troubleshooting]
